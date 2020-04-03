@@ -21,8 +21,9 @@ class Home extends CI_Controller {
 	public function pelanggaran()
 	{
 		$data['judul'] = 'Data Pelanggaran';
+		$data['pelanggaran'] = $this->m_data->tampil_pelanggaran()->result();
 		$this->load->view('templates/header',$data);
-		$this->load->view('admin/Pelanggaran');
+		$this->load->view('admin/Pelanggaran',$data);
 		$this->load->view('templates/footer');
 	}
 	public function polisi()
@@ -54,6 +55,14 @@ class Home extends CI_Controller {
 		$data['judul'] = 'Pendaftaran Admin';
 		$this->load->view('templates/header',$data);
 		$this->load->view('admin/daftaradmin',$data);
+		$this->load->view('templates/footer');
+	}
+	public function edit_admin($idadmin){
+		$where = array('idadmin'=>$idadmin);
+		$data['judul'] = 'Update Data Admin';
+		$data['admin'] = $this->m_data->editadmin($where,'admin')->result();
+		$this->load->view('templates/header',$data);
+		$this->load->view('admin/vedit_admin',$data);
 		$this->load->view('templates/footer');
 	}
 }

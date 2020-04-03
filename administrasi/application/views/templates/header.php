@@ -32,15 +32,15 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 <script src="js/Chart.js"></script>
 <!-- //chart -->
 <!--Calender-->
-<link rel="stylesheet" href="css/clndr.css" type="text/css" />
-<script src="js/underscore-min.js" type="text/javascript"></script>
-<script src= "js/moment-2.2.1.js" type="text/javascript"></script>
-<script src="js/clndr.js" type="text/javascript"></script>
-<script src="js/site.js" type="text/javascript"></script>
+<link rel="stylesheet" href="<?php echo base_url('assets/') ?>css/clndr.css" type="text/css" />
+<script src="<?php echo base_url('assets/') ?>js/underscore-min.js" type="text/javascript"></script>
+<script src= "<?php echo base_url('assets/') ?>js/moment-2.2.1.js" type="text/javascript"></script>
+<script src="<?php echo base_url('assets/') ?>js/clndr.js" type="text/javascript"></script>
+<script src="<?php echo base_url('assets/') ?>js/site.js" type="text/javascript"></script>
 <!--End Calender-->
 <!-- Metis Menu -->
-<script src="js/metisMenu.min.js"></script>
-<script src="js/custom.js"></script>
+<script src="<?php echo base_url('assets/') ?>js/metisMenu.min.js"></script>
+<script src="<?php echo base_url('assets/') ?>js/custom.js"></script>
 <link href="<?php echo base_url('assets/') ?>css/custom.css" rel="stylesheet">
 <!--//Metis Menu -->
 </head> 
@@ -55,7 +55,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 							<a href="<?php echo base_url() ?>home" ><i class="fa fa-home nav_icon"></i>Dashboard</a>
 						</li>
 						<li>
-							<a href="<?php echo base_url('home/pelanggaran') ?>"><i class="fa fa-cogs nav_icon"></i>Daftar Pelanggaran</a>
+							<a href="<?php echo base_url('home/pelanggaran') ?>"><i class="fa fa-cogs nav_icon"></i>Data Pelanggaran</a>
 							<!-- /nav-second-level -->
 						</li>
 						<li class="">
@@ -250,12 +250,12 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 						<li class="dropdown profile_details_drop">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
 								<div class="profile_img">	
-									<span class="prfil-img"><img src="<?php echo base_url(); ?>assets/images/a.png" alt=""> </span> 
+									
 									<div class="user-name">
-										<p>Melisa Septiani</p>
+										<p><?=$this->session->userdata('username');?></p>
 										<span>Administrator</span>
 									</div>
-									<i class="fa fa-angle-down lnr"></i>
+	    							<i class="fa fa-angle-down lnr"></i>
 									<i class="fa fa-angle-up lnr"></i>
 									<div class="clearfix"></div>	
 								</div>	
@@ -263,7 +263,7 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 							<ul class="dropdown-menu drp-mnu">
 								<li> <a href="#"><i class="fa fa-cog"></i> Settings</a> </li> 
 								<li> <a href="#"><i class="fa fa-user"></i> Profile</a> </li> 
-								<li> <a href="#"><i class="fa fa-sign-out"></i> Logout</a> </li>
+								<li> <a href="<?php echo base_url('login/logout') ?>"><i class="fa fa-sign-out"></i> Logout</a> </li>
 							</ul>
 						</li>
 					</ul>
@@ -272,4 +272,4 @@ SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony
 			</div>
 			<div class="clearfix"> </div>	
 		</div>
-		<!-- //header-ends -->
+		<!-- //header-ends --> 

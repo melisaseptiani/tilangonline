@@ -42,4 +42,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						<div class="clearfix"> </div>	
 					</div>
 					<div class="clearfix"> </div>	
+					<div class="row calender widget-shadow">
+					<h4 class="title">Calender</h4>
+					<div class="cal1">
+						
+					</div>
+				</div>
+				<div class="clearfix"> </div>
 					

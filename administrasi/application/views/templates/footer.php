@@ -5,7 +5,7 @@
         <!--//footer-->
 	</div>
 	<!-- Classie -->
-		<script src="js/classie.js"></script>
+		<script src="<?php echo base_url('assets/') ?>js/classie.js"></script>
 		<script>
 			var menuLeft = document.getElementById( 'cbp-spmenu-s1' ),
 				showLeftPush = document.getElementById( 'showLeftPush' ),
@@ -27,9 +27,9 @@
 		</script>
 	<!--scrolling js-->
 	<script src="<?php echo base_url('assets/') ?>js/jquery.nicescroll.js"></script>
-	<script src="js/scripts.js"></script>
+	<script src="<?php echo base_url('assets/') ?>js/scripts.js"></script>
 	<!--//scrolling js-->
 	<!-- Bootstrap Core JavaScript -->
-   <script src="js/bootstrap.js"> </script>
+   <script src="<?php echo base_url('assets/') ?>js/bootstrap.js"> </script>
 </body>
 </html>

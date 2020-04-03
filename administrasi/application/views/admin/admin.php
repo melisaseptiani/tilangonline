@@ -26,7 +26,7 @@
 										<td><?php echo $key->username ?></td>
 										<td><?php echo $key->nohp ?></td>
 										<td><?php echo $key->email ?></td>
-										<td><span class="label label-warning">Edit</span> | <span class="label label-danger">Delete</span></td>
+										<td><span class="label label-warning"href="<?=base_url()?>crud/update_admin<?=$key->idadmin?>">Edit</span> | <span class="label label-danger">Delete</span></td>
 										
 									</tr>
 									<?php } ?>

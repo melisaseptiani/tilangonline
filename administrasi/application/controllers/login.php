@@ -10,44 +10,40 @@ class login extends CI_Controller{
 	}
 
 	function index(){
-		$this->load->view('admin/v_login');
+		$dataa['judul'] = 'LOGIN';
+		$this->load->view('admin/v_login',$dataa);
+		
 	}
 
 	function aksi_login(){
-		$username = $this->input->post('username');
-		$password = $this->input->post('password');
-		$where = array(
-			'username' => $username,
-			'password' => md5($password)
-			);
-		$cek = $this->m_login->cek_login("admin",$where)->num_rows();
-		if($cek > 0){
 
-			$data_session = array(
-				'nama' => $username,
-				'status' => "login"
-				);
+	$this->form_validation->set_rules('username','Username','required|min_length[2]');
+    $this->form_validation->set_rules('password','Password','required');
 
-			$this->session->set_userdata($data_session);
+    if ($this->form_validation->run() == FALSE) {
+      $this->index();
+    }else {
+      $username = $this->input->post('username',true);
+      $password = $this->input->post('password',true);
+      $data = array(
+              'username' => $username,
+              'password' => password_verify($password)
+          );
 
-			redirect(base_url("home"));
+      $cek	= $this->m_login->cek_login($data);
+      if ($cek->num_rows() > 0) {
 
-		}else{
-			echo "Username dan password salah !";
-		}
-		$this->form_validation->set_rules('username','Username','required');
-		$this->form_validation->set_rules('password','Password','required');
+        $this->session->set_userdata($cek->row_array());
+        $this->session->set_flashdata('flash',$this->session->username);
+        redirect(base_url("home"));
+
+      }else {
+        $this->session->set_flashdata('status','Username atau Password tidak ditemukan');
+        redirect(base_url('login'));
+      }
+    }
+}
 		
-
-		if($this->form_validation->run() != false){
-			echo "Form validation oke";
-		}else{
-			$this->load->view('admin/v_login');
-		}
-	}
-	
-	
-
 	function logout(){
 		$this->session->sess_destroy();
 		redirect(base_url('login'));
